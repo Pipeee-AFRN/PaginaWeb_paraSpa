@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Body Spa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+
+<body>
+    <header>
+        <img src="img/logoSpa" alt="Logo" class="logo">
+        <section class="menu-icon" onclick="toggleMenu()">☰</section>
+        <nav id="menu">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios Destacados</a></li>
+                <li><a href="#testimonios">Comentarios</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#footer">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="intro" id="inicio">
+        <h1>Descubre la armonía y el bienestar en nuestro Spa</h1>
+        <button>
+            <a href="#footer" class="cta">Reserva tu experiencia</a>
+        </button>
+    </section>
+
+    <main>
+        <section id="servicios">
+            <h2>Servicios Destacados</h2>
+            <section>
+                <h3>Masajes</h3>
+                <p>Relájate con nuestros masajes terapéuticos.</p>
+            </section>
+            <section>
+                <h3>Faciales</h3>
+                <p>Revitaliza tu piel con nuestros tratamientos faciales.</p>
+            </section>
+            <section>
+                <h3>Terapias</h3>
+                <p>Descubre nuestras terapias holísticas para el bienestar.</p>
+            </section>
+            <button>
+                <a href="servicios.html" class="mas">ver todos los servicios</a>
+            </button>
+        </section>
+
+        <section id="testimonios">
+            <h2>Testimonios</h2>
+            <blockquote>
+                <p>"Excelentes servicios, con una gran variedad, muy amables, super recomendado" - Usuario 1</p>
+            </blockquote>
+            <blockquote>
+                <p>"el mejor Spa que he visitado." - Usuario 2</p>
+            </blockquote>
+        </section>
+
+        <section id="ubicacion">
+            <h2>Ubicación y Horario</h2>
+            <section id="mapa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.415854278236!2d-73.36001322625552!3d8.261339100535313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677b77c1b27889%3A0x40b02a9260956998!2sVitalbodyspa!5e0!3m2!1ses!2sco!4v1733781837243!5m2!1ses!2sco"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+            <p>Dirección: Calle 10, La Primavera, Ocaña, Norte de Santander</p>
+            <p>Lunes a Sábado: 9:00 AM - 8:00 PM</p>
+            <p>Domingo: 10:00 AM - 6:00 PM</p>
+        </section>
+    </main>
+
+    <footer id="footer">
+
+        <div class="social-icons">
+            <h4>síguenos:</h4>
+            <a href="https://facebook.com/usuario" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/usuario" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/usuario" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <h4>contacto</h4>
+        <p>Teléfono: 3124567890</p>
+        <p>correo:vitalbodyspa@gmail.com</p>
+        <p>&copy; 2024 vital body spa.</p>
+    </footer>
+
+</body>
+</html>
