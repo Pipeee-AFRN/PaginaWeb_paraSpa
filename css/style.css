@@ -1,0 +1,337 @@
+/* Variables and Reset */
+:root {
+  --color-primary: #89B5AF;
+  --color-secondary: #96C7C1;
+  --color-accent: #DED9C4;
+  --color-background: #F0EDE5;
+  --color-text: #2D4356;
+  --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition-smooth: all 0.3s ease;
+  --border-radius: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Nav */
+.nav-container {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav-logo {
+  max-height: 50px;
+}
+
+/* Menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Responsive: Hamburger Menu */
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--color-text);
+}
+
+.nav-menu.active {
+  display: block;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.nav-menu li {
+  margin: 0.5rem 0;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  padding-top: 4rem;
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backdrop-filter: blur(20px);
+}
+
+.hero-content {
+  padding: 2rem;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+.wave-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: var(--color-background);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 100%, 50% 50%);
+}
+
+/* Services Section */
+.services {
+  padding: 4rem 1rem;
+}
+
+.services h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+}
+
+.services-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  color: var(--color-primary);
+}
+
+/* Contact Section */
+.contact {
+  background-color: var(--background-light);
+  padding: 4rem 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--color-primary);
+  font-size: 2.5rem;
+}
+
+.contact-info, .schedule {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3, .schedule h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 0.5rem;
+}
+
+.contact-info p, .schedule p {
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info p::before, .schedule p::before {
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.icon-location::before { content: '📍'; }
+.icon-phone::before { content: '📞'; }
+.icon-email::before { content: '✉️'; }
+
+.map-container {
+  grid-column: 1 / -1;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* Components */
+.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-servicios {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: white;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.btn-servicios:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.social-icons {
+  margin-bottom: 1rem;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+/* Media Queries */
+@media (min-width: 768px) {
+  .nav-menu {
+      display: none;
+  }
+
+  .nav-toggle {
+      display: block;
+  }
+
+  .hero h1 {
+      font-size: 3rem;
+  }
+
+  .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+
+  .contact-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+  }
+
+  .map-container {
+      max-width: 800px;
+      margin: 3rem auto 0;
+  }
+
+  .map-container iframe {
+      height: 400px;
+  }
+}

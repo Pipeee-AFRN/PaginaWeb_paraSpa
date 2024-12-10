@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Vital Body Spa - Servicios</title>
+    <style>
+        :root {
+            --color-primary: #89B5AF;
+            --color-background: #F0EDE5;
+            --color-text: #2D4356;
+            --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition-smooth: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+        }
+
+        /* Navigation */
+        .nav-container {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .nav-logo {
+            max-height: 50px;
+        }
+
+        /* Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu li a:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        /* Responsive: Hamburger Menu */
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--color-text);
+        }
+
+        .nav-menu.active {
+            display: block;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .nav-menu li {
+            margin: 0.5rem 0;
+        }
+
+        /* Servicios */
+        #servicios {
+            padding: 2rem 1rem;
+        }
+
+        #servicios h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        .service-image-container {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-image:hover {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            flex-grow: 1;
+        }
+
+        .service-title {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Diseño responsivo */
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .service-image-container {
+                margin-bottom: 1rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-container">
+        <div class="container nav-wrapper">
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg fill="#000000" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M20.787 9.023c-.125.027-1.803.418-3.953 1.774-.323-1.567-1.279-4.501-4.108-7.485L12 2.546l-.726.767C8.435 6.308 7.483 9.25 7.163 10.827 5.005 9.448 3.34 9.052 3.218 9.024L2 8.752V10c0 7.29 3.925 12 10 12 5.981 0 10-4.822 10-12V8.758l-1.213.265zM8.999 12.038c.002-.033.152-3.1 3.001-6.532C14.814 8.906 14.999 12 15 12v.125a18.933 18.933 0 0 0-3.01 3.154 19.877 19.877 0 0 0-2.991-3.113v-.128zM12 20c-5.316 0-7.549-4.196-7.937-8.564 1.655.718 4.616 2.426 7.107 6.123l.841 1.249.825-1.26c2.426-3.708 5.425-5.411 7.096-6.122C19.534 15.654 17.304 20 12 20z" />
+            </svg>
+            <button class="nav-toggle" aria-label="Abrir menú">&#9776;</button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="../index.html#ubicacion">Ubicación</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="servicios" class="container">
+            <h2>Masajes</h2>
+            <div class="grid grid-2">
+                <div class="service-item">
+                    <div class="service-image-container">
+                        <img src="../img/masaje_relajante.jpg" alt="Masaje relajante" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Masaje relajante</h3>
+                        <p>Ayuda a reducir el estrés y la tensión muscular, utilizando aceites esenciales aromáticos.
+                        </p>
+                        <p>Relajación, mejora la circulación</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-image-container">
+                        <img src="../img/masaje_tejido.jpg" alt="Masaje de tejido profundo" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Masaje de tejido profundo</h3>
+                        <p>Técnica especializada para aliviar dolores musculares y liberar tensión crónica.</p>
+                        <p>Alivia contracturas, mejora movilidad</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Faciales</h2>
+            <div class="grid grid-2">
+                <div class="service-item">
+                    <div class="service-image-container">
+                        <img src="../img/limpieza_profunda.jpg" alt="Limpieza facial" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Limpieza facial profunda</h3>
+                        <p>Limpieza intensa para eliminar impurezas y células muertas.</p>
+                        <p>Piel limpia, hidratada y revitalizada</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-image-container">
+                        <img src="../img/fancial.jpg" alt="Facial antiedad" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Facial antiedad</h3>
+                        <p>Tratamientos especializados para reducir arrugas y líneas de expresión.</p>
+                        <p>Piel más firme, aspecto rejuvenecido</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="social-icons">
+            <h4>Síguenos:</h4>
+            <a href="https://facebook.com/usuario" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/usuario" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/usuario" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="footer-contact">
+            <h4>Contacto</h4>
+            <p class="footer-detail">Teléfono: 3124567890</p>
+            <p class="footer-detail">Correo: vitalbodyspa@gmail.com</p>
+        </div>
+        <p class="copyright">&copy; 2024 Vital Body Spa</p>
+    </footer>
+</body>
+
+</html>
