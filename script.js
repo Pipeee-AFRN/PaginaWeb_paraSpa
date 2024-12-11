@@ -30,12 +30,12 @@ document.getElementById('reservation-form').addEventListener('submit', function(
     // Limpiar el formulario
     document.getElementById('reservation-form').reset();
 });
-// Obtener el botón del menú y el contenedor del menú
-const menuToggle = document.getElementById('.nav-toggle');
-const navList = document.getElementById('nav-list');
 
-// Añadir un evento para escuchar el clic en el menú
-menuToggle.addEventListener('click', () => {
-    navList.classList.toggle('show');  // Alternar la clase 'show' para mostrar u ocultar el menú
-});
-
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-list');
+  
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  });

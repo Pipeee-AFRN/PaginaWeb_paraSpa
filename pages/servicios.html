@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,75 +24,109 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: var(--color-background);
             color: var(--color-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+            padding-top: 4rem; /* Adjust to match navbar height */
         }
 
         /* Navigation */
-        .nav-container {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: sticky;
+        .navbar {
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-        }
-
-        .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
-        }
-
-        .nav-logo {
-            max-height: 50px;
-        }
-
-        /* Menu */
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 1rem;
-            transition: var(--transition-smooth);
-        }
-
-        .nav-menu li a {
-            text-decoration: none;
-            color: var(--color-text);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .nav-menu li a:hover {
+            padding: 1rem 2rem;
             background-color: var(--color-primary);
             color: white;
         }
-
-        /* Responsive: Hamburger Menu */
-        .nav-toggle {
+        /* Hamburger Menu */
+        .menu-toggle {
             display: none;
-            font-size: 1.5rem;
+        }
+        .hamburger {
+            display: none;
             cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--color-text);
-        }
-
-        .nav-menu.active {
-            display: block;
             flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
+            gap: 0.4rem;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
             background-color: white;
-            box-shadow: var(--shadow-soft);
-            text-align: center;
-            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        /*links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
         }
 
-        .nav-menu li {
-            margin: 0.5rem 0;
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .close-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .hamburger {
+                display: flex;
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                z-index: 1100;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: #89b5af81;
+                padding: 4rem 2rem;
+                flex-direction: column;
+                align-items: center;
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                color: white;
+                font-size: 2rem;
+                cursor: pointer;
+                display: block;
+                z-index: 1100;
+            }
         }
 
         /* Servicios */
@@ -121,7 +154,7 @@
             display: flex;
             align-items: center;
             background-color: white;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             box-shadow: var(--shadow-soft);
             padding: 1rem;
             gap: 1rem;
@@ -131,7 +164,7 @@
             width: 200px;
             height: 200px;
             flex-shrink: 0;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             overflow: hidden;
         }
 
@@ -197,47 +230,38 @@
             .service-image-container {
                 margin-bottom: 1rem;
             }
-
-            .nav-menu {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .nav-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
         }
     </style>
 </head>
 
 <body>
-    <nav class="nav-container">
-        <div class="container nav-wrapper">
-            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-            <svg fill="#000000" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <header class="navbar">
+        <div class="logo"><?xml version="1.0" encoding="utf-8"?>
+            <svg fill="#ffffff" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M20.787 9.023c-.125.027-1.803.418-3.953 1.774-.323-1.567-1.279-4.501-4.108-7.485L12 2.546l-.726.767C8.435 6.308 7.483 9.25 7.163 10.827 5.005 9.448 3.34 9.052 3.218 9.024L2 8.752V10c0 7.29 3.925 12 10 12 5.981 0 10-4.822 10-12V8.758l-1.213.265zM8.999 12.038c.002-.033.152-3.1 3.001-6.532C14.814 8.906 14.999 12 15 12v.125a18.933 18.933 0 0 0-3.01 3.154 19.877 19.877 0 0 0-2.991-3.113v-.128zM12 20c-5.316 0-7.549-4.196-7.937-8.564 1.655.718 4.616 2.426 7.107 6.123l.841 1.249.825-1.26c2.426-3.708 5.425-5.411 7.096-6.122C19.534 15.654 17.304 20 12 20z" />
             </svg>
-            <button class="nav-toggle" aria-label="Abrir menú">&#9776;</button>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../index.html#servicios">Servicios</a></li>
-                <li><a href="../index.html#ubicacion">Ubicación</a></li>
-                <li><a href="../index.html#contacto">Contacto</a></li>
-            </ul>
         </div>
-    </nav>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        
+        <ul class="nav-links">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#footer">Contacto</a></li>
+          <li><a href="https://wa.me/qr/GAQGLJTCXPCAJ1" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+    </header>
 
     <main>
         <section id="servicios" class="container">
@@ -249,8 +273,7 @@
                     </div>
                     <div class="service-content">
                         <h3 class="service-title">Masaje relajante</h3>
-                        <p>Ayuda a reducir el estrés y la tensión muscular, utilizando aceites esenciales aromáticos.
-                        </p>
+                        <p>Ayuda a reducir el estrés y la tensión muscular, utilizando aceites esenciales aromáticos.</p>
                         <p>Relajación, mejora la circulación</p>
                     </div>
                 </div>
@@ -306,6 +329,20 @@
         </div>
         <p class="copyright">&copy; 2024 Vital Body Spa</p>
     </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const closeBtn = document.querySelector('.close-btn');
+
+        menuToggle.addEventListener('change', () => {
+            if (menuToggle.checked) {
+                navLinks.style.right = '0';
+            } else {
+                navLinks.style.right = '-100%';
+            }
+        });
+
+    </script>
 </body>
 
 </html>
